@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: ddva7jes3
+  api_key: '798587693498377'
+  api_secret: IHMKfU_SW3KxqN7UMK1muSXshk0
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ddva7jes3
+  api_key: '798587693498377'
+  api_secret: IHMKfU_SW3KxqN7UMK1muSXshk0
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ddva7jes3
+  api_key: '798587693498377'
+  api_secret: IHMKfU_SW3KxqN7UMK1muSXshk0
+  enhance_image_tag: true
+  static_image_support: false

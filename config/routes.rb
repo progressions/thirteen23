@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get '/signup' => 'users#new'
+  get '/signup' => 'users#new', as: :signup
   post '/users' => 'users#create'
+
 end

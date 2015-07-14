@@ -6,6 +6,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    .nav
+      %ul
+        %li= link_to('Home', root_url)
+        %li Edit
+
     .flashes
       - flash.to_hash.slice('alert', 'error', 'notice', 'success').each do |key, value|
         .flash{class: key}= value

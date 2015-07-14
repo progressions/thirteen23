@@ -2,11 +2,11 @@
 
 = form_tag '/login' do
   %p
-    = label :username_or_email, 'Username or Email'
+    = label_tag :username_or_email, nil, class: 'required'
     = text_field_tag :username_or_email
 
   %p
-    = label :password, 'Password'
+    = label_tag :password, nil, class: 'required'
     = password_field_tag :password
 
   %p

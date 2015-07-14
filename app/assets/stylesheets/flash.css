@@ -1,0 +1,11 @@
+.flashes .flash {
+  color: white;
+  padding: 1em;
+}
+.flash.alert {
+  background-color: red;
+}
+.flash.notice {
+  background-color: green;
+}
+

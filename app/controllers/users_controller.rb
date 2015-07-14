@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect_to user_profile_url(@user)
     else
       flash[:error] = 'There was a problem creating this user.'
-      redirect_to :back
+      redirect_to signup_url
     end
   end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       redirect_to user_profile_url(@user)
     else
       flash[:error] = 'There was a problem updating this user.'
-      redirect_to :back
+      redirect_to @user
     end
   end
 

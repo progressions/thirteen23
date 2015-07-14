@@ -51,6 +51,11 @@ RSpec.describe UsersController, type: :controller do
         post :create, invalid_params
         expect(controller.flash[:error]).to eq('There was a problem creating this user.')
       end
+
+      it 'redirects back to signup page' do
+        post :create, invalid_params
+        expect(response).to redirect_to(signup_url)
+      end
     end
   end
 end

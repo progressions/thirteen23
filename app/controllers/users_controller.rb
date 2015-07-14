@@ -12,10 +12,10 @@ class UsersController < ApplicationController
     if @user.save
       session[:current_user_id] = @user.id
       flash[:notice] = 'User created successfully.'
-      redirect_to @user
+      redirect_to user_profile_url(@user)
     else
       flash[:error] = 'There was a problem creating this user.'
-      redirect_to signup_url
+      redirect_to :back
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = 'User updated successfully.'
-      redirect_to @user
+      redirect_to user_profile_url(@user)
     else
       flash[:error] = 'There was a problem updating this user.'
       redirect_to :back

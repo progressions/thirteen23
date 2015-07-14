@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:current_user_id] = @user.id
 
       flash[:notice] = 'Signed in successfully.'
-      redirect_to @user
+      redirect_to user_profile_url(@user)
     else
       flash[:error] = 'There was a problem signing you in.'
       redirect_to signin_url

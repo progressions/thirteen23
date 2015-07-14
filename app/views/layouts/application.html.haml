@@ -16,9 +16,9 @@
         - else
           %li= link_to('Sign In', signin_url)
 
-    .flashes
-      - flash.to_hash.slice('alert', 'error', 'notice', 'success').each do |key, value|
-        .flash{class: key}= value
-
     .wrapper
+      .flashes
+        - flash.to_hash.slice('alert', 'error', 'notice', 'success').each do |key, value|
+          .flash{class: key}= value
+
       = yield

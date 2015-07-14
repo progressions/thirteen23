@@ -34,6 +34,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def upload_image
+    @user = User.find(params[:id])
+    if @user.image = user_params[:image]
+      flash[:notice] = 'User updated successfully.'
+      redirect_to user_profile_url(@user)
+    else
+      flash[:error] = 'There was a problem updating this user.'
+      redirect_to @user
+    end
+  end
+
   def show
     @user = User.where(params[:id]).first || User.where(params[:username]).first
   end
@@ -41,6 +52,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :image)
   end
 end

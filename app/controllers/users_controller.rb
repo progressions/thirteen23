@@ -11,8 +11,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:current_user_id] = @user.id
+      flash[:notice] = 'User created successfully.'
       redirect_to @user
     else
+      flash[:error] = 'There was a problem creating this user.'
       redirect_to signup_url
     end
   end
@@ -24,8 +26,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notice] = 'User updated successfully.'
       redirect_to @user
     else
+      flash[:error] = 'There was a problem updating this user.'
       redirect_to :back
     end
   end

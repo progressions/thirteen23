@@ -12,9 +12,9 @@
         %li= link_to('Edit', root_url)
         - if signed_in?
           %li= link_to(current_user.name, current_user)
-          %li= link_to('Sign Out', logout_url)
+          %li= link_to('Sign Out', signout_url)
         - else
-          %li= link_to('Sign In', login_url)
+          %li= link_to('Sign In', signin_url)
 
     .flashes
       - flash.to_hash.slice('alert', 'error', 'notice', 'success').each do |key, value|

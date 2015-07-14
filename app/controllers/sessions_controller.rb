@@ -8,17 +8,17 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:current_user_id] = @user.id
 
-      flash[:notice] = 'Logged in successfully.'
+      flash[:notice] = 'Signed in successfully.'
       redirect_to @user
     else
-      flash[:error] = 'There was a problem logging you in.'
-      redirect_to login_url
+      flash[:error] = 'There was a problem signing you in.'
+      redirect_to signin_url
     end
   end
 
   def destroy
     session[:current_user_id] = nil
-    flash[:notice] = 'Logged out successfully.'
+    flash[:notice] = 'Signed out successfully.'
     redirect_to root_url
   end
 end

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def authentication_required
     unless current_user.present?
-      # redirect_to signin_url
+      redirect_to signin_url
     end
   end
 

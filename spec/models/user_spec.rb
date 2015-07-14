@@ -23,6 +23,25 @@ RSpec.describe User, type: :model do
       expect(mal.errors[:email]).to include("can't be blank")
     end
 
+    it 'requires password' do
+      mal.password = nil
+      expect(mal).not_to be_valid
+      expect(mal.errors[:password]).to include("can't be blank")
+    end
+
+    it 'requires password to match confirmation' do
+      mal.password = 'i<3inara'
+      mal.password_confirmation = 'i<3saffron'
+      expect(mal).not_to be_valid
+      expect(mal.errors[:password_confirmation]).to include("doesn't match Password")
+    end
+
+    it 'requires password to be 6 characters or longer' do
+      mal.password = 'river'
+      expect(mal).not_to be_valid
+      expect(mal.errors[:password]).to include("is too short (minimum is 6 characters)")
+    end
+
     it 'requires unique username' do
       mal.username = inara.username
       expect(mal).not_to be_valid
@@ -41,6 +60,12 @@ RSpec.describe User, type: :model do
         expect(mal).not_to be_valid
         expect(mal.errors[:username]).to include("is reserved")
       end
+    end
+
+    it 'requires username to have no whitespace' do
+      mal.username = 'mal reynolds'
+      expect(mal).not_to be_valid
+      expect(mal.errors[:username]).to include("is invalid")
     end
   end
 end

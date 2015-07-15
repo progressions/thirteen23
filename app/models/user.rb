@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true, exclusion: %w(signup signin signout users), format: {without: /\s/}
   validates :email, presence: true, uniqueness: true
-  validates :password, confirmation: true, length: {minimum: 6}
+  validates :password, confirmation: true, length: {minimum: 6}, unless: Proc.new { |a| a.password.blank? }
 
   def image=(image)
     cloudinary = Cloudinary.upload(image)

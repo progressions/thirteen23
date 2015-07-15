@@ -22,8 +22,12 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, length: {minimum: 6}, unless: Proc.new { |a| a.password.blank? }
 
   def image=(image)
-    cloudinary = Cloudinary.upload(image)
-    self.cloudinary_public_id = cloudinary.public_id
+    if image.nil?
+      self.cloudinary_public_id = nil
+    else
+      cloudinary = Cloudinary.upload(image)
+      self.cloudinary_public_id = cloudinary.public_id
+    end
   end
 
   def profile_image_url

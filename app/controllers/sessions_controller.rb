@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to user_profile_url(@user)
     else
       flash[:error] = 'There was a problem signing you in.'
-      redirect_to signin_url
+      render :new
     end
   end
 

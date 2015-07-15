@@ -29,7 +29,7 @@ class Cloudinary
   end
 
   def profile_image_url
-    "http://res.cloudinary.com/#{cloud_name}/image/upload/w_200,h_200,c_thumb,g_face,r_max/#{public_id}"
+    "http://res.cloudinary.com/#{cloud_name}/image/upload/w_200,h_200,c_thumb,g_face,r_max/#{public_id}.png"
   end
 
   # private

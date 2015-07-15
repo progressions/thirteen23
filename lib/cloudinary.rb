@@ -25,11 +25,15 @@ class Cloudinary
   end
 
   def image_url
-    "http://res.cloudinary.com/#{cloud_name}/image/upload/#{public_id}"
+    if public_id.present?
+      "http://res.cloudinary.com/#{cloud_name}/image/upload/#{public_id}"
+    end
   end
 
   def profile_image_url
-    "http://res.cloudinary.com/#{cloud_name}/image/upload/w_200,h_200,c_thumb,g_face,r_max/#{public_id}.png"
+    if public_id.present?
+      "http://res.cloudinary.com/#{cloud_name}/image/upload/w_200,h_200,c_thumb,g_face,r_max/#{public_id}.png"
+    end
   end
 
   # private
@@ -85,6 +89,10 @@ class Cloudinary
   end
 
   def public_id
-    @public_id ||= parsed_response['public_id']
+    if response
+      @public_id = parsed_response['public_id']
+    else
+      @public_id
+    end
   end
 end

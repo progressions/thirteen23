@@ -20,4 +20,14 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true, exclusion: %w(signup signin signout users), format: {without: /\s/}
   validates :email, presence: true, uniqueness: true
   validates :password, confirmation: true, length: {minimum: 6}
+
+  def image=(image)
+    cloudinary = Cloudinary.upload(image)
+    self.cloudinary_public_id = cloudinary.public_id
+  end
+
+  def profile_image_url
+    cloudinary = Cloudinary.new(public_id: cloudinary_public_id)
+    cloudinary.profile_image_url
+  end
 end

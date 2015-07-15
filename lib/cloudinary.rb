@@ -7,11 +7,32 @@ class Cloudinary
     @@config
   end
 
-  attr_accessor :file, :response
-
-  def initialize(file:)
-    self.file = file
+  def self.upload(file)
+    c = Cloudinary.new(file: file)
+    c.upload
+    c
   end
+
+  attr_accessor :file, :public_id, :response
+
+  def initialize(file: nil, public_id: nil)
+    self.file = file
+    self.public_id = public_id
+  end
+
+  def upload
+    @response = RestClient.post(remote_upload_url, request_params)
+  end
+
+  def image_url
+    "http://res.cloudinary.com/#{cloud_name}/image/upload/#{public_id}"
+  end
+
+  def profile_image_url
+    "http://res.cloudinary.com/#{cloud_name}/image/upload/w_200,h_200,c_thumb,g_face,r_max/#{public_id}"
+  end
+
+  # private
 
   def config
     Cloudinary.config[Rails.env]
@@ -59,15 +80,11 @@ class Cloudinary
     "https://api.cloudinary.com/v1_1/#{cloud_name}/image/upload"
   end
 
-  def upload
-    @response = RestClient.post(remote_upload_url, request_params)
-  end
-
   def parsed_response
     JSON.parse(response)
   end
 
   def public_id
-    parsed_response['public_id']
+    @public_id ||= parsed_response['public_id']
   end
 end

@@ -54,7 +54,7 @@ RSpec.describe UsersController, type: :controller do
 
       it 'redirects back to signup page' do
         post :create, invalid_params
-        expect(response).to redirect_to(signup_url)
+        expect(response).to render_template('users/new')
       end
     end
   end

@@ -34,17 +34,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def upload_image
-    @user = User.find(params[:id])
-    if @user.image = user_params[:image]
-      flash[:notice] = 'User updated successfully.'
-      redirect_to user_profile_url(@user)
-    else
-      flash[:error] = 'There was a problem updating this user.'
-      render :show
-    end
-  end
-
   def show
     @user = User.where(params[:id]).first || User.where(params[:username]).first
   end

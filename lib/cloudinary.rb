@@ -7,7 +7,7 @@ class Cloudinary
     @@config
   end
 
-  attr_accessor :file
+  attr_accessor :file, :response
 
   def initialize(file:)
     self.file = file
@@ -56,10 +56,18 @@ class Cloudinary
   end
 
   def remote_upload_url
-    URI("https://api.cloudinary.com/v1_1/#{cloud_name}/image/upload")
+    "https://api.cloudinary.com/v1_1/#{cloud_name}/image/upload"
   end
 
   def upload
-    Net::HTTP.post_form(remote_upload_url, request_params)
+    @response = RestClient.post(remote_upload_url, request_params)
+  end
+
+  def parsed_response
+    JSON.parse(response)
+  end
+
+  def public_id
+    parsed_response['public_id']
   end
 end

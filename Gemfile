@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'annotate'
 gem 'haml'
+gem 'pg'
 gem 'rest-client'
 gem 'will_paginate', '~> 3.0.5'
 

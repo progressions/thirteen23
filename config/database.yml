@@ -12,5 +12,4 @@ test:
   database: thirteen23_test
 
 production:
-  <<: *default
-  database: thirteen23_production
+  url: <%= ENV['DATABASE_URL'] %>

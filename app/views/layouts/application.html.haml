@@ -5,21 +5,21 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .nav
-      %ul
-        %li= link_to('Home', root_url)
-        - if signed_in?
-          %li= link_to('Edit', edit_user_url(current_user))
-          %li= link_to(current_user.name, user_profile_url(current_user.username))
-          %li= link_to('Sign Out', signout_url)
-        - else
-          %li= link_to('Sign In', signin_url)
+    #wrapper
+      .nav
+        %ul
+          %li= link_to('Home', root_url)
+          - if signed_in?
+            %li= link_to('Edit', edit_user_url(current_user))
+            %li= link_to(current_user.name, user_profile_url(current_user.username))
+            %li= link_to('Sign Out', signout_url)
+          - else
+            %li= link_to('Sign In', signin_url)
 
-    .wrapper
       .flashes
         - flash.to_hash.slice('alert', 'error', 'notice', 'success').each do |key, value|
           .flash{class: key}= value
 
       = yield
 
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+      = javascript_include_tag 'application', 'data-turbolinks-track' => true

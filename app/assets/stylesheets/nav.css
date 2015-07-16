@@ -1,5 +1,4 @@
 .nav {
-  background-color: #333;
   margin: 0;
   width: 100%;
 }
@@ -7,7 +6,6 @@
   display: block;
   margin: 0 auto;
   padding: 1em 0;
-  width: 80%;
 }
 .nav li {
   display: inline-block;
@@ -15,7 +13,6 @@
   margin-right: 1em;
 }
 .nav li a {
-  color: #999;
   text-decoration: none;
 }
 .nav li a:hover {

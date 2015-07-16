@@ -15,18 +15,19 @@
  */
 
 html, body {
-  background-color: #999;
+  background-color: #DFBBB1;
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-  color: #333;
+  color: #BE3E82;
   height: 100%;
-  margin: 0;
 }
 
-.wrapper {
-  background-color: #eee;
-  height: 100%;
+a {
+  text-decoration: none;
+  color: #5E4352;
+}
+
+
+#wrapper {
+  width: 70%;
   margin: 0 auto;
-  min-width: 1000px;
-  padding: 1em;
-  width: 80%;
 }

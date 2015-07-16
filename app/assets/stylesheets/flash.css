@@ -1,12 +1,11 @@
 .flashes .flash {
-  background-color: orange;
   color: white;
   padding: 1em;
 }
-.flash.alert {
-  background-color: red;
+.flash.error {
+  background-color: #E43F6F;
 }
 .flash.notice {
-  background-color: green;
+  background-color: #5E4352;
 }
 

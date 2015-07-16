@@ -1,6 +1,7 @@
 %h1 Users
 
 - @users.each do |user|
-  %p= user.name
+  .user
+    %h2= link_to(user.name, user_profile_url(user.username))
 
 = will_paginate(@users)

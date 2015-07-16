@@ -27,15 +27,25 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = 'User updated successfully.'
-      redirect_to user_profile_url(@user.username)
+      respond_to do |format|
+        format.html { redirect_to user_profile_url(@user.username) }
+        format.json { render json: @user.to_json(methods: :profile_image_url) }
+      end
     else
       flash[:error] = 'There was a problem updating this user.'
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+      end
     end
   end
 
   def show
-    @user = User.where(params[:id]).first || User.where(params[:username]).first
+    @user = User.where(id: params[:id]).first || User.where(username: params[:username]).first
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @user.to_json(methods: :profile_image_url) }
+    end
   end
 
   private

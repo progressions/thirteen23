@@ -7,3 +7,5 @@
 - [x] The user can upload a photo on their own profile page (upload controls should be hidden on other user's pages). Uploading, setting the user's photo in the database, and showing the new photo to the user should be done without reloading the page.
 - [x] A user can go to any other user's profile page and see their photo.
 - [x] The home page contains a paginated list of links to each user's home page (sorted by join date). Each page should have a maximum of 5 users.
+
+- [ ] Deploy to Heroku

@@ -6,6 +6,11 @@
 - if current_user == @user
   .upload_image
     = form_for @user do |f|
-      = f.file_field :image
+      = label_tag(nil, class: 'upload_wrapper') do
+        %p Choose a new profile image.
 
-      = f.submit
+        = f.file_field :image, required: true
+
+        .button Upload File
+
+        = f.submit('Update')

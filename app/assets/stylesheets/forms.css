@@ -16,9 +16,30 @@ label.required::after {
   content: '*';
 }
 input[type='submit'] {
+  background-color: black;
+  border: none;
+  color: #ddd;
+  cursor: pointer;
   margin-top: 1em;
-  padding: 1em;
-  font-size: 1.5em;
+  padding: 0.5em;
+  font-size: 1em;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
+.upload_wrapper input[type='file'] {
+  position: fixed;
+  top: -1000px;
+}
+.upload_wrapper .button {
+  background-color: black;
+  color: #ddd;
+  cursor: pointer;
+  padding: 0.5em;
 
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}

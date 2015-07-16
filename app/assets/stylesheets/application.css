@@ -26,6 +26,10 @@ a {
   color: #5E4352;
 }
 
+h1, h2, h3 {
+  font-family: 'Arial Black', sans-serif;
+}
+
 
 #wrapper {
   width: 70%;

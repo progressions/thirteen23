@@ -42,9 +42,19 @@ class UsersController < ApplicationController
   def show
     @user = User.where(id: params[:id]).first || User.where(username: params[:username]).first
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @user.to_json(methods: :profile_image_url) }
+    if @user
+      respond_to do |format|
+        format.html
+        format.json { render json: @user.to_json(methods: :profile_image_url) }
+      end
+    else
+      respond_to do |format|
+        format.html do
+          flash[:error] = 'User could not be found.'
+          redirect_to root_url
+        end
+        format.json { render 404 }
+      end
     end
   end
 

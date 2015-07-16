@@ -10,7 +10,7 @@
         %li= link_to('Home', root_url)
         - if signed_in?
           %li= link_to('Edit', edit_user_url(current_user))
-          %li= link_to(current_user.name, current_user)
+          %li= link_to(current_user.name, user_profile_url(current_user))
           %li= link_to('Sign Out', signout_url)
         - else
           %li= link_to('Sign In', signin_url)

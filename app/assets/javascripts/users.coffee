@@ -4,10 +4,11 @@
 
 class UserProfile
   @init: ->
-    $('.upload_image').hide()
-    $('.profile_image').hover(UserProfile.showProfileInstructions, UserProfile.hideProfileInstructions)
-    $('.profile_image').click(UserProfile.showUploadForm)
-    $('form.edit_user').submit(UserProfile.submit)
+    if $('.upload_image').length
+      $('.upload_image').hide()
+      $('.profile_image').hover(UserProfile.showProfileInstructions, UserProfile.hideProfileInstructions)
+      $('.profile_image').click(UserProfile.showUploadForm)
+      $('form.edit_user').submit(UserProfile.submit)
 
   @submit: (event) ->
     event.preventDefault()

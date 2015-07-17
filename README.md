@@ -8,4 +8,4 @@
 - [x] A user can go to any other user's profile page and see their photo.
 - [x] The home page contains a paginated list of links to each user's home page (sorted by join date). Each page should have a maximum of 5 users.
 
-- [ ] Deploy to Heroku
+- [x] Deploy to Heroku

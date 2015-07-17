@@ -18,3 +18,14 @@
 .nav li a:hover {
   color: #bbb;
 }
+
+.nav ul.menu {
+  float: left;
+}
+
+.nav ul.user {
+  float: right;
+}
+.clear {
+  clear: both;
+}

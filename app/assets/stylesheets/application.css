@@ -26,11 +26,13 @@ a {
   color: #5E4352;
 }
 
-h1, h2, h3 {
-  font-family: 'Arial Black', sans-serif;
-}
-
 #wrapper {
   width: 70%;
   margin: 0 auto;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: normal;
+  letter-spacing: -0.05em;
 }
